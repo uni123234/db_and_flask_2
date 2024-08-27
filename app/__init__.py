@@ -1,10 +1,20 @@
-from flask import Flask, g
+"""
+Application factory for creating the Flask app instance.
 
+This module sets up the Flask app and registers blueprints.
+"""
+
+from flask import Flask
+from app.routes import bp
 
 def create_app():
-    app = Flask(__name__)
+    """
+    Create and configure the Flask app.
 
-    from app.routes import bp
+    Returns:
+        Flask: The Flask application instance.
+    """
+    app = Flask(__name__)
 
     app.register_blueprint(bp, url_prefix="/")
 
